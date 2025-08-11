@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Custom PC Build</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Custom PC Build</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="wrapper">
+            
+            <div id="CPCB-Sideview">
+                <img src="../Media/CustomPCBuild.jpg" alt="Custom PC Build Picture" id="CustomPCBuildPic">
+            
+                <ul id="CustomPCBuildSpecs">
+                    <h3 id="CPCB-Specs">Specs:</h3>
+                    <li>CPU: 7800x3D (8C/16Th)</li>
+                    <li>CPU Cooler: Thermalright Phantom Spirit 120 SE</li>
+                    <li>GPU: 7900XT Powercolor Hellhound</li>
+                    <li>RAM: 32GB (2x16GB) DDR5 6000MHz CL 30</li>
+                    <li>Motherboard: Asrock B650E PG Riptide Wi-Fi</li>
+                    <li>SSD: Crucial P3 2TB</li>
+                    <li>PSU: Deepcool PQ1000M 1000w 80+ Gold fully modular ATX</li>
+                    <li>Case: Montech Air 903 Max</li>
+                </ul>
+            </div>
+            
+            <h3>Decision Making</h3>
+            <p class="Description" id="CPCB-DecisionMaking">
+                The main goals of this build were to have good Linux support, room for upgradeability, the ability to
+                handle gaming and streaming simultaneously, some light video editing, and enough power to do some testing with
+                multiple VMs simultaneously.
+                <br>
+                <br>
+
+                With Linux support being one of the main focuses the GPU was decidedly AMD to be able to use default
+                mesa drivers and not deal with the lack of support for open source Nvidia drivers and the somewhat buggy
+                proprietary drivers (this was before Nvidia hired one of the maintainers for the open source GPU drivers and 
+                when there were still plenty of Wayland integration issues).
+                <br>
+                <br>
+
+                At the same time Intel was having overvoltage issues with their 13th and 14th gen processors while still
+                losing to AMD in gaming performance so an easy decision to go with AMD. On top of Intel having issues the x3d
+                CPUs AMD were making have been showing that the increased L3 cache could bring out considerably better frame rates
+                for fast paced CPU bound games like most E-Sports titles.
+                <br>
+                <br>
+         </p>
+
+            <h3>Upgradability</h3>
+            <p class="Description" id="CPCB-Upgradability">
+                With the platform decided by the CPU being AMD the two remaining options were AM4 or AM5. AM4 being the older
+                socket type running ddr4 RAM and soon to become EOL. This left AM5 as the clear winner being the new socket type
+                with the assumption of 3 or more generations of CPUs to potentially upgrade to in the future and supporting the newer
+                ddr5. 
+                <br>
+                <br>
+
+                So on to looking for a motherboard with an AM5 socket with room for expandability/upgradability. Looking for at least
+                2 m.2 slots (full x4 lanes at least gen 4), 4 RAM slots, 2 PCIe slots (at least 1 x16 slot with full 16 lanes at gen 5), 
+                2.5Gb NIC, and Wi-Fi 6e (not required to be included but to have the option of a Wi-Fi card). Since PCIe gen 5 was one of the
+                requirements for a full x16 slot the only chipsets that met that requirement were the B650E and the X670E chipsets. Eventually I
+                landed on the board that I did because it met all of the earlier requirement or exceded them. 3 m.2 slots, 2 x16 (1 at gen 5 1 at gen 4)
+                slots (1 x16 lanes or 2 x8), 1 x1 slot, 1 pre populated m.2 Wi-Fi slot with a Wi-Fi 6e card, 2.5Gb Ethernet, etc.
+                <br>
+                <br>
+            </p>
+
+            <h3>Downsides and Lessons Learned</h3>
+            <p class="Description" id="CPCB-Downsides&LL">
+                Some of the major problems with upgradability and expandability options is price and space constraints. The more features and
+                options you want the more expensive the end result will be and depending on the options for upgrades the more space it will take up.
+                Especially when you want multiple PCIe slots you need more space for the amount of cards you want to put in a system and each of those
+                cards have power requirements and thermal limits that require adequate cooling or a power supply that can support them as well as a large
+                enough case to house all of the internal components.
+                <br>
+                <br>
+
+                There are several things I would have done differently in this build if I were to do it again. Among those are a different case with better
+                port availability especially more USB A ports than just 2. I would have swapped the motherboard for either an X670E that was about the same price
+                +-$10 or changed the build entirely to an ITX form factor.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <ul id="footerLinks">
+                <li><a href="../contact.html">Contact info</a></li>
+                <li><a href="https://github.com/Erik-Dennis" target="_blank">GitHub</a></li>
+            </ul>
+        </p>
+    </footer>
+    
+</body>
+
+</html>

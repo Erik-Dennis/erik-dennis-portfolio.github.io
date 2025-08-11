@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Smart Light Demo</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Smart Light Demo</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="wrapper">
+            
+            <div id="SLD-Sideview">
+                <video src="../Media/Videos/Side by side website and light.mov" alt="Smart Light Demo Video"
+                id="SmartLightDemoVideo" controls controlsList="nodownload" autoplay muted></video>
+
+                <ul id="SLD-SoftwareList">
+                    <h3>Software and Programming Languages:</h3>
+                    <li>HTML/CSS/JS (Basic Webpage and interfacing with the API)</li>
+                    <li>NodeJS (API middleman to allow clients to interface with the server)</li>
+                    <li>Python (Scripts called from the API to control GPIO pins)</li>
+                    <li>Apache2 (Used to host the webpage)</li>
+                    <li>Cron (Used to call a bash script to start the API on boot)</li>
+                    <li>systemctl (used to start Apache2 on boot)</li>
+                    <h3>Hardware:</h3>
+                    <li>Raspberry Pi 4B</li>
+                    <li>Breadboard</li>
+                    <li>2 Jumper Wires</li>
+                    <li>1000 Ohm Ressistor</li>
+                    <li>White LED</li>
+                </ul>
+            </div>
+            
+            <div id="SLD-content-center">
+                <h3>Basic Functionality</h3>
+                <p class="Description" id="SLD-BasicFunctionality">
+                    The main goal of this project was to create an interface that multiple users/clients could access and control
+                    simultaneously. In this case we are controlling a light from a webpage and relaying the current status to all
+                    clients.
+                </p>
+                
+                <div id="SLD-Sideview-Description">
+                    <div id="SLD-gapcreator">
+                        <h3 id="SLD-titlefix">Build Process and Hurdles</h3>
+                    
+                        <p class="Description" id="SLD-BuildProcess">
+                            CORS which stands for Cross Origin Resource Sharing initially threw an error from non-localhost clients.
+                            Upon further research this standard is used for some amount of screening as a permision system of sorts.
+                            It looks for where the incoming requests are coming from and either allows or denies the request based on 
+                            their IP and MAC addresses. To fix this error I set request permissions to all domains
+                            which can be found in 
+                            <a class="BodyLink" href="https://github.com/Erik-Dennis/Smart-Light-Demo/blob/main/NodeJS/index.js"
+                            target="_blank">index.js line 12</a>.
+                            This allowed for client devices to
+                            send requests to the raspberry pi via the buttons on event feature regardless of where they are coming from
+                            (LAN, WAN, etc) (External use could be achieved with port forwarding or a vpn).
+                            <br>
+                            <br>
+
+                            Before adding the current iteration of the light current status to the webpage I had a system that each client
+                            would ask the API for the status on loading the webpage every .8 seconds. This system floaded the API with
+                            requests and was really inefficient because a lot of the time the status hadn’t changed so it was multiple requests
+                            with no new information and the more clients added the more inefficient this becomes (especially when some of the
+                            mobile clients kept pinging if they weren’t closed but were open in the background). The current implementation changed
+                            to making the API be responsible for keeping the clients up to date instead of the clients sending individual requests.
+                            This is really convenient because we can send all of the clients an update on the current status everytime we get a request
+                            to change the light (on or off) reducing the amount of pinging to the API significantly.
+                            (The system above doesn’t solve the problem of the initial loading of the website so it still sends a request on load for the current status).
+
+                        </p>
+                    </div>
+                
+                    <div id="SLD-VideoandDesc">
+                        <video id="SLD-Client-Examples" src="../Media/Videos/Multi Client Demos.mov" controls controlsList="" nodownload muted></video>
+                                    
+                        <p id="SLD-Video-Description">
+                            First half: Two clients the one on the right shows requests sent to the API and the one on the left shows
+                            messages from the API to the client. 
+                            <br>
+                            <br>
+
+                            Second half: Two clients with the API's output looping through and broadcasting the light state change to
+                            update the current status for all clients.
+                        </p>
+                    </div>
+                </div>
+                
+
+                <h3>Potential Vulnerabilities</h3>
+                <p class="Description" id="SLD-PotentialVulnerabilities">
+                    <b>Snooping:</b> Since this is using HTTP and not HTTPS none of the data is encrypted and it is transmitted in plain text
+                    so anyone trying to listen in will easily be able to read the data transmitted.
+                    <br>
+                    <br>
+
+                    <b>Spoofing and unauthorized requests:</b> No type of permission system or authorization is setup for this so any device
+                    could send viable requests without any screening and potentially setup a man-in-the-middle attack with data poisoning.
+                    (With the small scope of this it’s not very destructive or useful but definetly something to keep in mind if you’re setting
+                    up something that collects more user input/data).
+                    <br>
+                    <br>
+
+                    <b>DDOS's:</b> This setup could easily be flooded with enough requests to be inaccessible this could be fixed with a reverse-proxy,
+                    a segmented network, setting up CORS correctly, and limiting traffic to only authorized people or devices.
+                    <br>
+                    <br>
+                    
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <ul id="footerLinks">
+                <li><a href="../contact.html">Contact info</a></li>
+                <li><a href="https://github.com/Erik-Dennis" target="_blank">GitHub</a></li>
+            </ul>
+        </p>
+    </footer>
+    
+</body>
+
+</html>

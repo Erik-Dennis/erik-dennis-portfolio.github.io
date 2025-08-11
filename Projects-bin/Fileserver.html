@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>File Server</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>File Server</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="wrapper">
+            
+            
+            <img src="../Media/FileServer.jpg" alt="File Server Picture" id="FileServerPic">
+
+            <!--Written 1/28/2025-->
+
+            <p class="Description" id="FileServerDescription">
+                What started off as a simple File Sharing server (NAS) has morphed to have many jobs over the past few years.
+                Sometimes hosting game servers other times hosting docker containers and of course hosting a samba share. 
+
+                As of the time of writing this, this machine is running a bare metal installation of Ubuntu 24.04 LTS.
+                On top of the OS it is hosting a 1TB samba file share, two game servers, and a few Docker containers.
+                <br>
+                <br>
+                <b>File Share:</b> This is used for backups and file transfers between machines and between installations of
+                Windows and Linux for various projects from websites to code to ripped ROMs and Movies from physically owned media.
+                <br>
+                <br>
+                <b>Game Servers:</b> These mostly consist of Minecraft and Palworld for family members and friends locally but eventually
+                I would love to scale these to being open across WAN or VPN with whitelists, a segmented (air-gaped) VLAN or DMZ 
+                and some implementation of a reverse proxy for ‘screening’.
+                <br>
+                <br>
+                <b>Docker Containers:</b> I am running Portainer as a web UI to manage my Docker containers and Docker Compose stacks,
+                Plex for streaming ripped DVDs, Heimdall for a dashboard to easily navigate to all of the hosted services,
+                and Uptime Kuma for monitoring uptime of services and notifying me if any of them go down.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <ul id="footerLinks">
+                <li><a href="../contact.html">Contact info</a></li>
+                <li><a href="https://github.com/Erik-Dennis" target="_blank">GitHub</a></li>
+            </ul>
+        </p>
+    </footer>
+    
+</body>
+
+</html>

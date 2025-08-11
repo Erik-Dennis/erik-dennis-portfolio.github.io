@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Macro Pi</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Macro Pi</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="wrapper">
+
+            <div id="MacroPi">
+                
+                <img src="../Media/Macro-Pi.jpg" alt="LCD Screen Raspberry Pi Macro Pad" id="macroPiPic">
+                                
+                <div class="Description" id="macroPiDescription">
+                    <p>
+                        The Macro Pi is a project that I built using a combination of a Raspberry Pi 4 (64 bit, 4 core CPU, <br>
+                        4GB RAM, with a wireless card for 2.4GHz WiFi and Bluetooth), a 3.5 inch LCD screen/case that <br>
+                        attached to the GP I/O pins, and some python and bash scripting. While the hardware may be a little <br>
+                        overkill for something this small of scale the end result was quite nice. <br>
+                        
+                        <br>
+
+                        The Macro Pi utilizes the os.system() function to interact with the system terminal. It then calls <br>
+                        the screen command with the argument -S to name the screen and -dm to detach the screen from the <br>
+                        current terminal session as referred to in the <a class="BodyLink" href="https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/">documentation</a>. <br>
+
+                        <br>
+
+                        The GUI was created with the tkinter library and programs are called on button press. An example of <br>
+                        the Steam Flatpak being called looks something like this: <br>
+
+                        <br>
+
+                            def steam(): <br>
+                                os.system(‘screen -S Steam -dm ssh localServerIP “export DISPLAY=serverSessionNumber && flatpak run com.valvesoftware.Steam”’) <br>
+
+                                <br>
+
+                        and then the function steam being passed through to the command variable in the ttk.Button: <br>
+
+                        <br>
+
+                            ttk.Button(frm, text=”Steam”, command=steam).grid(column=1, row=2) <br>
+
+                        <br>
+
+                        The portion “export DISPLAY=” needs to be set to the tty session of the server which can be found <br>
+                        by running the “w” command in the terminal. For my personal configuration the tty session is “:1” <br>
+                        so it would look like “export DISPLAY=:1”. This allows the graphical application to open on the <br>
+                        server rather than on the client. In this case without exporting the display the application would <br>
+                        attempt to open on the Raspberry Pi instead of opening on the laptop or desktop you are trying to <br>
+                        control. <br>
+
+                        <br>
+
+                        The code can be found <a class="BodyLink" href="https://github.com/Erik-Dennis/Macro-Pi.git" target="_blank">here</a> at my GitHub 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <ul id="footerLinks">
+                <li><a href="../contact.html">Contact info</a></li>
+                <li><a href="https://github.com/Erik-Dennis" target="_blank">GitHub</a></li>
+            </ul>
+        </p>
+    </footer>
+    
+</body>
+
+</html>
