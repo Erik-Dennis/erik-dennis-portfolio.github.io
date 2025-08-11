@@ -74,8 +74,8 @@
 
                             Before the current iteration of the light status to the webpage I had a system that each client
                             would ask the API for the status on loading the webpage and every .8 seconds. This system floaded the API with
-                            requests and was very inefficient, because a lot of the time the status hadn’t changed so it was multiple requests
-                            with no new information and the more clients added the more inefficient it became (especially when some of the
+                            requests and was very inefficient. A lot of the time the status hadn’t changed, creating multiple redundant requests.
+                            The more clients added to this time based system, the more inefficient it became. (especially when some of the
                             mobile clients kept pinging if they weren’t closed but were open in the background). The current implementation makes
                             the API responsible for keeping the clients up to date instead of the clients sending individual requests.
                             This is really convenient because we can send all of the clients an update on the current status everytime we get a request
