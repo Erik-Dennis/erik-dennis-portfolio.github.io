@@ -131,6 +131,7 @@ nav {
 
 nav li {
     display: inline;
+    margin: 15px;
 }
 
 nav a {
@@ -224,4 +225,5 @@ nav a {
     width: 400px;
 
 }
+
 
