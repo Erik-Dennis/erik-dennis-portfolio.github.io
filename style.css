@@ -135,7 +135,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 246, 209);
 }
 
 #profilePic {
@@ -223,4 +223,5 @@ nav a {
 
 #SLD-Video-Description {
     width: 400px;
+
 }
